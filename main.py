@@ -27,36 +27,44 @@ def take_request():
             if 'musa' in request:
                 request = request.replace('musa', '')
                 print(request)
+            else:
+                request = ""
     except:
         pass
-    if request == "":
-        take_request()
     return request
 
 
 def run_musa():
     instruction = take_request()
-    print(instruction)
-    if 'play' in instruction:
-        song = instruction.replace('play', '')
-        talk('playing ' + song)
-        pywhatkit.playonyt(song)
-    elif 'time' in instruction:
-        time = datetime.datetime.now().strftime('%I:%M %p')
-        talk('Current time is ' + time)
-    elif 'who is' in instruction:
-        person = instruction.replace('who is', '')
-        information = wikipedia.summary(person, 1)
-        print(information)
-        talk(information)
-    elif 'joke' in instruction:
-        talk(pyjokes.get_joke())
-    elif 'stop' in instruction:
-        talk("ok, bye ")
-        exit()
-    else:
-        talk('Please say the command again.')
-
+    try:
+        if instruction is None or instruction == "":
+            pass
+        elif 'play' in instruction:
+            song = instruction.replace('play', '')
+            talk('playing ' + song)
+            pywhatkit.playonyt(song)
+        elif 'time' in instruction:
+            time = datetime.datetime.now().strftime('%I:%M %p')
+            talk('Current time is ' + time)
+        elif 'who is' in instruction:
+            person = instruction.replace('who is', '')
+            information = wikipedia.summary(person, 1)
+            print(information)
+            talk(information)
+        elif 'joke' in instruction:
+            talk(pyjokes.get_joke())
+        elif 'stop' in instruction:
+            talk("ok, bye ")
+            exit()
+        elif 'how are you' in instruction:
+            talk("i am great. Hope you doing good ")
+        elif 'are you single' in instruction:
+            talk("Noooo, i am already in relationship with your WIFI")
+        else:
+            talk('Please say the command again.')
+    except:
+        talk("i am having trouble to find your instruction")
+        pass
 
 while True:
     run_musa()
