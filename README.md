@@ -1,6 +1,8 @@
 # alexaAsMusa
 creating own alexa my own voice command responder 
 
+to run pyaudio the python base interpreter should be in the version of python 3.6
+
 **Installation**
 **For windows users**
 (run those in command prompt/cmt/terminal) For the robot to listen to our voice/speech pip install speechRecognition
