@@ -7,7 +7,7 @@ creating own alexa my own voice command responder
 
 To speak out, or text to speech pip install pyttsx3
 
-For advance control on browser pip install pywhatkit
+For advance control on browser pip install pywhatkit==3.8
 
 To get wikipedia data pip install wikipedia
 
